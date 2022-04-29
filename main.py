@@ -3,18 +3,17 @@ import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+from mailer.sending_information import SENDINGinformation
 from highlights_reminder import kindle_highlights, Quote
 
-sender_email = input("Type sender's email and press enter:")
 
-receiver_email = input("Type your receiver's email and press enter:")
-password = input("Type your password for senders email and press enter: (note this is not super
-        secure - use a test email)")
+# def __main__():
+sending_info = SENDINGinformation()
 
 message = MIMEMultipart("alternative")
 message["Subject"] = "Daily 5 - Book Quotes"
-message["From"] = sender_email
-message["To"] = receiver_email
+message["From"] = sending_info.ENV_SENDER_EMAIL
+message["To"] = sending_info.ENV_RECIPIENT_EMAIL
 text = ""
 html = """\
 <style>
@@ -134,5 +133,9 @@ message.attach(part2)
 # Create secure connection with server and send email
 context = ssl.create_default_context()
 with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-    server.login(sender_email, password)
-    server.sendmail(sender_email, receiver_email, message.as_string())
+    server.login(sending_info.ENV_SENDER_EMAIL, sending_info.ENV_SENDER_PASSWORD)
+    server.sendmail(
+        sending_info.ENV_SENDER_EMAIL,
+        sending_info.ENV_RECIPIENT_EMAIL,
+        message.as_string(),
+    )
