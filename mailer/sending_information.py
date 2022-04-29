@@ -1,8 +1,18 @@
+"""sending_information.py
+
+description: Loads the sending information (receiver, sender)'s emails and
+sender's password from the .env file. Makes those env variables available for
+use in the program.
+
+author: Mathieu Rivier
+date: 04/29/2022
+"""
+
 import os
 from dotenv import load_dotenv
 
 
-class SENDINGinformation(object):
+class SendingInformation(object):
     def __init__(self):
         load_dotenv()
 
