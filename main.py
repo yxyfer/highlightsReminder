@@ -15,7 +15,7 @@ from mailer.send_mail import send_mail
 if __name__ == "__main__":
     sending_info = SendingInformation()
 
-    highlights = GenerateHighlights("books").highlights
+    highlights = GenerateHighlights().highlights
 
     mail = ComposeEmail(sending_info, highlights).message
 

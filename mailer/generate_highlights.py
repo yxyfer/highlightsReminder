@@ -6,21 +6,21 @@ author: Mathieu Rivier
 date: 04/29/2022
 """
 from highlights_reminder import kindle_highlights, Quote
+from highlights_manager.highlights import HighlightsInteractions
 
 
 class GenerateHighlights(object):
-    def __init__(self, file_path, quotes_number=5):
+    def __init__(self, quotes_number=5):
         """
         @arg file_path - the folder in which the quotes are
         """
         self.quotes_number = quotes_number
-        self.quotes = kindle_highlights(file_path)
-
+        self.highlights = HighlightsInteractions()
         self.highlights = self.generate_highlights()
 
     def generate_highlights(self):
         highlights = ""
-        for quote in self.quotes.get_daily_n(self.quotes_number):
+        for quote in self.highlights.get_daily_n(self.quotes_number):
             highlights += self._format_quote(quote)
 
         return highlights
