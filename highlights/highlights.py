@@ -1,14 +1,14 @@
 import random
 
-from highlights_manager.quote import Quote
-from highlights_manager.highlights_helpers import HighlightsHelpers
+from highlights.quote import Quote
+from highlights.helpers import HighlightsHelpers
 
 
 class HighlightsInteractions(object):
     def __init__(self):
         self.quotes = HighlightsHelpers().load()
 
-    def get_daily_n(self, n):
+    def get_daily_n(self, n=5):
         size = len(self.quotes)
 
         daily_quotes = []

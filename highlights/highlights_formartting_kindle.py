@@ -3,7 +3,7 @@ import pandas as pd
 import json
 import os
 
-from highlights_manager.highlights_helpers import HighlightsHelpers
+from highlights.helpers import HighlightsHelpers
 
 
 class HighlightsParserKindle:
