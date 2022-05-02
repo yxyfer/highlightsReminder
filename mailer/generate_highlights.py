@@ -7,7 +7,7 @@ date: 04/29/2022
 """
 
 from highlights.quote import Quote
-from highlights.highlights import HighlightsInteractions
+from highlights.interactions import HighlightsInteractions
 
 
 class GenerateHighlights(object):
