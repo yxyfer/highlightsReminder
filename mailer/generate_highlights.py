@@ -5,8 +5,9 @@ description: Generates the final email (html + css) to be sent.
 author: Mathieu Rivier
 date: 04/29/2022
 """
-from highlights_reminder import kindle_highlights, Quote
-from highlights_manager.highlights import HighlightsInteractions
+
+from highlights.quote import Quote
+from highlights.highlights import HighlightsInteractions
 
 
 class GenerateHighlights(object):
