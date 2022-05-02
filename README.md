@@ -17,6 +17,21 @@ HighlightsParserKindle()
 ```
 - ___NOTE___: a better version will be released very soon
 
+### .ENV setUP:
+
+To send yourself emails you'll need a sender's email and a receiver's email.
+
+```shell
+# Create a .env
+cp .env.template .env
+# Open the .env file you just created
+vim .env
+```
+
+You can now add your sender's email and password and the recipient's email.
+
+___NOTE___: I am in no case responsible if you push your code online or get it stolen in anyway. I advise you to create a fake email with a random password that you use just for this. (Later on the code will function through access tokens which are more secure, but for now it isn't the case). You are responsible for protecting your password :)
+. 
 ### Run the solution:
 
 ```shell
