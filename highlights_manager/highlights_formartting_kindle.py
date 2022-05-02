@@ -17,13 +17,16 @@ class HighlightsParserKindle:
         self._clean_and_save()
 
     def _get_highlights_files(self):
-        with os.scandir(self.hhelpers.ENV_QUOTES_FOLDER_NAME) as quote_files:
-            files = [
-                self.hhelpers.ENV_QUOTES_FOLDER_NAME + "/" + file.name
-                for file in quote_files
-            ]
+        folder_name = self.hhelpers.ENV_QUOTES_FOLDER_NAME
+        suffix = ".json"
 
-        return files
+        highlights_files = [
+            highlights_file.path
+            for highlights_file in os.scandir(folder_name)
+            if highlights_file.name.endswith(suffix)
+        ]
+
+        return highlights_files
 
     def _parse_new_highlights(self):
         new_highlights = []
